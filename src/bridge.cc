@@ -102,7 +102,7 @@ attach(const Arguments& args)
 
         CPhidget_getErrorDescription(result, &err);
         printf("Problem waiting for attachment: %s\n", err);
-        return;
+        return ThrowException(Exception::Error(String::New("Could not attach to device.")));
     }
 
     // Display the properties of the attached device
