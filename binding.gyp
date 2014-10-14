@@ -5,8 +5,8 @@
             "sources": [
                 "src/bridge.cc"
             ],
-            "ldflags": [
-              '-lphidget21'
+            "libraries": [
+              "-lphidget21"
             ],
             "conditions": [
                 ["OS=='mac'",
