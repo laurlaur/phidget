@@ -49,6 +49,7 @@ int CCONV BridgeDataHandler(CPhidgetBridgeHandle ADVSERVO, void *usrptr, int Ind
 {
     printf("Bridge: %d > Current Data: %f\n", Index, Value);
     return 0;
+    
 }
 
 int display_properties(CPhidgetBridgeHandle phid)
@@ -92,7 +93,7 @@ attach(const Arguments& args)
     CPhidget_set_OnDetach_Handler((CPhidgetHandle)bridge, DetachHandler, NULL);
     CPhidget_set_OnError_Handler((CPhidgetHandle)bridge, ErrorHandler, NULL);
 
-    // CPhidgetBridge_set_OnBridgeData_Handler(bridge, data, NULL);
+    CPhidgetBridge_set_OnBridgeData_Handler(bridge, BridgeDataHandler, NULL);
 
     CPhidget_open((CPhidgetHandle)bridge, -1);
 
