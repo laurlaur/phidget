@@ -83,7 +83,6 @@ attach(const Arguments& args)
 
     int result;
     const char *err;
-    CPhidgetBridgeHandle bridge;
     //CPhidget_enableLogging(PHIDGET_LOG_VERBOSE, NULL);
 
     CPhidgetBridge_create(&bridge);
@@ -97,13 +96,13 @@ attach(const Arguments& args)
     CPhidget_open((CPhidgetHandle)bridge, -1);
 
     //Wait for 10 seconds, otherwise exit
-    if((result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000)))
-    {
+    // if((result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000)))
+    // {
 
-        CPhidget_getErrorDescription(result, &err);
-        printf("Problem waiting for attachment: %s\n", err);
-        return ThrowException(Exception::Error(String::New("Could not attach to device.")));
-    }
+    //     CPhidget_getErrorDescription(result, &err);
+    //     printf("Problem waiting for attachment: %s\n", err);
+    //     return ThrowException(Exception::Error(String::New("Could not attach to device.")));
+    // }
 
     // Display the properties of the attached device
     display_properties(bridge);
