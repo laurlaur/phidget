@@ -7,8 +7,9 @@ using namespace v8;
 // ------------------------------------------
 // Globals
 // ------------------------------------------
-
-CPhidgetBridgeHandle bridge = 0;
+extern "C" {
+    CPhidgetBridgeHandle bridge = 0;
+}
 
 // ------------------------------------------
 // Event handlers
