@@ -83,29 +83,26 @@ attach(const Arguments& args)
 
     int result;
     const char *err;
+    CPhidgetBridgeHandle bridge;
+    //CPhidget_enableLogging(PHIDGET_LOG_VERBOSE, NULL);
 
-    // Create the bridge object
     CPhidgetBridge_create(&bridge);
 
-    // Register event handlers
     CPhidget_set_OnAttach_Handler((CPhidgetHandle)bridge, AttachHandler, NULL);
     CPhidget_set_OnDetach_Handler((CPhidgetHandle)bridge, DetachHandler, NULL);
     CPhidget_set_OnError_Handler((CPhidgetHandle)bridge, ErrorHandler, NULL);
 
-    // Registers a callback that will run when the sensor value is changed.
-    // Requires the handle for the Phidget, the function that will be called,
-    // and an arbitrary pointer that will be supplied to the callback function (may be NULL).
-    //CPhidgetBridge_set_OnBridgeData_Handler((CPhidgetBridgeHandle)bridge, BridgeDataHandler, NULL);
+    CPhidgetBridge_set_OnBridgeData_Handler(bridge, data, NULL);
 
-    // Open the device for connections
     CPhidget_open((CPhidgetHandle)bridge, -1);
 
-    // Get the program to wait for an advanced bridge device to be attached
-    printf("Waiting for Phidget to be attached....\n");
-    if((result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000)))
+    //Wait for 10 seconds, otherwise exit
+    if(result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000))
     {
+
         CPhidget_getErrorDescription(result, &err);
-        return ThrowException(Exception::Error(String::New("Could not attach to device.")));
+        printf("Problem waiting for attachment: %s\n", err);
+        return;
     }
 
     // Display the properties of the attached device
