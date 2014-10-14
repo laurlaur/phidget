@@ -1,7 +1,7 @@
 {
     "targets": [
         {
-            "target_name": "phidget_node",
+            "target_name": "binding",
             "sources": [
                 "src/bridge.cc"
             ],
