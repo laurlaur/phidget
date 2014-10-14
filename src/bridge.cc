@@ -92,7 +92,7 @@ attach(const Arguments& args)
     CPhidget_set_OnDetach_Handler((CPhidgetHandle)bridge, DetachHandler, NULL);
     CPhidget_set_OnError_Handler((CPhidgetHandle)bridge, ErrorHandler, NULL);
 
-    CPhidgetBridge_set_OnBridgeData_Handler(bridge, data, NULL);
+    // CPhidgetBridge_set_OnBridgeData_Handler(bridge, data, NULL);
 
     CPhidget_open((CPhidgetHandle)bridge, -1);
 
