@@ -1,15 +1,15 @@
-#include <phidget21.h>
 #include <node.h>
 #include <v8.h>
+#include <phidget21.h>
 
 using namespace v8;
 
 // ------------------------------------------
 // Globals
 // ------------------------------------------
-extern "C" {
-    CPhidgetBridgeHandle bridge = 0;
-}
+
+CPhidgetBridgeHandle bridge = 0;
+
 
 // ------------------------------------------
 // Event handlers
@@ -83,7 +83,6 @@ attach(const Arguments& args)
 
     int result;
     const char *err;
-    CPhidgetBridgeHandle bridge;
 
     // Create the bridge object
     CPhidgetBridge_create(&bridge);
