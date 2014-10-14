@@ -83,7 +83,7 @@ attach(const Arguments& args)
 
     int result;
     const char *err;
-    //CPhidget_enableLogging(PHIDGET_LOG_VERBOSE, NULL);
+    CPhidget_enableLogging(PHIDGET_LOG_VERBOSE, NULL);
 
     CPhidgetBridge_create(&bridge);
 
