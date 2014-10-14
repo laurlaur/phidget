@@ -3,7 +3,6 @@
         {
             "target_name": "phidget_node",
             "sources": [
-                "src/servo.cc",
                 "src/bridge.cc"
             ],
             "ldflags": [
