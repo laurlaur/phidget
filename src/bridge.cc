@@ -83,6 +83,7 @@ attach(const Arguments& args)
 
     int result;
     const char *err;
+    CPhidgetBridgeHandle bridge;
 
     // Create the bridge object
     CPhidgetBridge_create(&bridge);
