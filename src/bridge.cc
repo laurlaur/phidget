@@ -49,7 +49,17 @@ int CCONV BridgeDataHandler(CPhidgetBridgeHandle ADVSERVO, void *usrptr, int Ind
 {
     printf("Bridge: %d > Current Data: %f\n", Index, Value);
     return 0;
-    
+        CPhidgetBridgeHandle bridge = (CPhidgetBridgeHandle)phid;
+    double f, ms;
+    int i;
+
+    printf("Data Event (%d) %lf\n",index,val);
+    /*if(val < 0)
+        printf("Data Event (%d) - -0x%06x\n",index,(int)-val);
+    else
+        printf("Data Event (%d) - +0x%06x\n",index,(int)val);*/
+
+    return 0;
 }
 
 int display_properties(CPhidgetBridgeHandle phid)
@@ -98,7 +108,7 @@ attach(const Arguments& args)
     CPhidget_open((CPhidgetHandle)bridge, -1);
 
     //Wait for 10 seconds, otherwise exit
-    if(result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000))
+    if((result = CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000)))
     {
 
         CPhidget_getErrorDescription(result, &err);
