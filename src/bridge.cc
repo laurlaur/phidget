@@ -1,6 +1,6 @@
+#include <phidget21.h>
 #include <node.h>
 #include <v8.h>
-#include <phidget21.h>
 
 using namespace v8;
 
