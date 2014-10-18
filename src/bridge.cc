@@ -47,7 +47,7 @@ int CCONV ErrorHandler(CPhidgetHandle ADVSERVO, void *userptr, int ErrorCode, co
 
 int CCONV BridgeDataHandler(CPhidgetBridgeHandle ADVSERVO, void *usrptr, int Index, double Value)
 {
-    printf("Bridge: %d > Current Data: %f\n", Index, Value);
+    //printf("Bridge: %d > Current Data: %f\n", Index, Value);
     return 0;
 }
 
